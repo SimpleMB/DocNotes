@@ -8,7 +8,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const githubName = 'SimpleMB'
 const githubRepoName = 'DocNotes'
 const githubURL = `https://github.com/${githubName}/${githubRepoName}`;
-const appTitle = 'React Notes and Concepts |'
+const appTitle = 'React Notes by MB ❤️'
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -50,13 +50,14 @@ const config = {
           // editUrl:
           //   "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          // editUrl:
-          //   "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
-        },
+        blog: false,
+        // blog: {
+        //   showReadingTime: true,
+        //   // Please change this to your repo.
+        //   // Remove this to remove the "edit this page" links.
+        //   // editUrl:
+        //   //   "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+        // },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
