@@ -16,7 +16,7 @@ const FeatureList = [
   {
     title: "Yup, that's it",
     Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
-    description: <>This and that</>,
+    description: <>This and that</>
   },
 ];
 
