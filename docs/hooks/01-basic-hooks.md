@@ -9,7 +9,7 @@ They can only be used within the Component function.
 
 ## useState
 
-Hook to manage Component's state. [Documentation](https://reactjs.org/docs/hooks-state.html).
+Hook to manage the Component's state. [Documentation](https://reactjs.org/docs/hooks-state.html).
 
 ```jsx
 const [state, setState] = React.useState(defaultValue)
@@ -53,31 +53,15 @@ Hook that allows you to run some custom code after React renders (and re-renders
 
 It accepts a callback function which React will call after the DOM has been updated.
 
-And a dependency list in form of array.
+And a dependency list in form of an array.
 
-[Documentation](https://reactjs.org/docs/hooks-effect.html)
+[Documentation]Look at the dependency list as a second argument to the hook. 
 
-```jsx
-useEffect(() => {
-  document.title = `You clicked ${count} times`;
-}, [count])
-```
-```jsx
-// or with cleanup function
-useEffect(() => {
-  const indexInterval = setInterval(1000);
-  return () => {
-    clearInterval(indexInterval)
-  }
-}, [])
-```
-Look at dependency list as a second argument to the hook. 
+If you don't provide this array, useEffect will run after each render and re-render.
 
-If you don't provide this array, useEffect will run after each render and rerender.
+`[]` - hook will run only once after the Component is mounted.
 
-`[]` - hook will run only once after Componet is mounted.
-
-`[count]` - hook will run after Component is mounted and everytime when count value changes.
+`[count]` - hook will run after the Component is mounted and whenever the count value changes.
 
 ## useContext
 
