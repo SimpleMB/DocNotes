@@ -2,30 +2,41 @@
 sidebar_position: 1
 ---
 
-# Basic Hooks
-
-Hooks are built-in functions in React that do some things. [Docs❤️](https://beta.reactjs.org/reference/react)
-
-They can only be used only in function Components.
+# Basic types in React
 
 ---
-## useState
+## JSX.Element
 
-Hook to manage the Component's state. [Docs❤️](https://reactjs.org/docs/hooks-state.html).
+Every component in React has a type: [Docs❤️](https://reactjs.org/docs/hooks-state.html).
 
 ```jsx
-const [state, setState] = React.useState(defaultValue);
-const [count, setCount] = React.useState(defaultValue);
-const [user, setUser] = React.useState(defaultValue);
+// JSX.Element
+const Form = () => JSX.Element
 ```
 
-Returns an array of two items.
-First is a variable `state` that contains a state object or just value. You can name variable `state` however you want.
+## PropTypes
+When a component gets some props we can type them like this:
 
 ```jsx
-const value = state;
-// or
-const { userName, name, age } = user;
+type PropTypes = {
+    id: number;
+    username: string;
+    age: number;
+}
+
+const User = (props: PropTypes) => {
+    const {id, username, age} = props;
+    // component body
+}
+
+// or desctructure
+
+const User = ({id, username, id}: PropTypes) => {
+    const {id, username, age} = props;
+    // component body
+}
+
+
 ```
 
 Second is a function `setState` that you need to use to set a new state value.
@@ -115,3 +126,5 @@ Use in the custom hooks will be described later.
 
 ---
 ## useReducer
+
+
