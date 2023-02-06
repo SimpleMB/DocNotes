@@ -22,6 +22,8 @@ type PropTypes = {
     id: number;
     username: string;
     age: number;
+    articles?: Article[]; // optional
+    admin?: boolean       // optional
 }
 
 const User = (props: PropTypes) => {
@@ -31,7 +33,7 @@ const User = (props: PropTypes) => {
 
 // or desctructure
 
-const User = ({id, username, id}: PropTypes) => {
+const User = ({id, username, age}: PropTypes) => {
     const {id, username, age} = props;
     // component body
 }
@@ -39,67 +41,39 @@ const User = ({id, username, id}: PropTypes) => {
 
 ```
 
-Second is a function `setState` that you need to use to set a new state value.
+## Typing Children
+When a component receives children or an array of children we need to type it. We can use an internal React type called `React.ReactNode`. Doesn't matter if we have a single child or multiple, it's a string, component or HtmlElement.
 
 ```jsx
-setState(newState);
-// or
-setState((prevState) => {
-  // some calculations
-  return prevState * 2;
-});
-//or
-setState(10);
-```
+type UserListProps = {
+    children: React.ReactNode;
+}
 
-`defaultValue` is a value that we provide when the component is first created.
+const UserList = ({children} : UserListProps) => {
+
+    return {children}
+}
+
+```
+## Typing Styles
+Sometimes in props, we can receive special styling for our component. Here is how to type it:
 
 ```jsx
-const defaultValue = 10;
-// or
-const defaultValue = { name: "John", age: 40 };
+type UserListProps = {
+    children: React.ReactNode;
+    style?: React.CSSProperties
+}
+
+const UserList = ({children, style = {}} : UserListProps) => {
+
+    return (
+        <div style={style}>
+            {children}
+        <div/>
+    )
+}
+
 ```
----
-## useEffect
-
-[Docs❤️](https://reactjs.org/docs/hooks-effect.html)
-
-Hook that allows you to run some custom code after React renders (and re-renders) your component to the DOM.
-
-It accepts a callback function which React will call after the DOM has been updated.
-
-And a dependency list in form of an array.
-
-```jsx
-useEffect(() => {
-    // Update the document title after the component is mounted
-    document.title = `Hello mthrfkr`;
-
-    // No deps array
-  });
-```
-```jsx
-useEffect(() => {
-    document.title = `You clicked ${count}} times`;
-  }, [count]);
-```
-```jsx
-useEffect(() => {
-    // Update the document title after the component is mounted
-    cosnt idx = setInterval(someFunction, 1000);
-    return () => {
-      clearIndex(idx)
-    }
-  }, []);
-```
-
-Look at the dependency list as a second argument to the hook.
-
-If you don't provide this array, useEffect will run after each render and re-render.
-
-`[]` - hook will run only once after the Component is mounted.
-
-`[count]` - hook will run after the Component is mounted and whenever the count value changes.
 
 ---
 ## useContext
