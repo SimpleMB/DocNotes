@@ -42,7 +42,7 @@ const User = ({id, username, age}: PropTypes) => {
 ```
 
 ## Typing Children
-When a component receives children or an array of children we need to type it. We can use an internal React type called `React.ReactNode`. Doesn't matter if we have a single child or multiple, it's a string, component or HtmlElement.
+When a component receives children or an array of children we need to type it. We can use an internal React type called `React.ReactNode`. Doesn't matter if we have a single child or multiple, it's a string, component or HTMLElement.
 
 ```jsx
 type UserListProps = {
@@ -74,31 +74,3 @@ const UserList = ({children, style = {}} : UserListProps) => {
 }
 
 ```
-
----
-## useContext
-Hook that lets you read and subscribe to context from your component. [Docs❤️](https://beta.reactjs.org/reference/react/useContext)
-
-First - create a React Context.
-
-```jsx
-const SomeContext = React.createContext()
-const SomeContext = React.createContext(defaultValue)
-```
-
-Then we can create to provide this context to other components in the tree.
-```jsx
-<SomeContext.Provider value={someValue}>
-  <OtherComponent>
-<SomeContext.Provider>
-```
-In the OtherComponent we can access this context.
-```jsx
-const value = useContext(SomeContext)
-```
-Use in the custom hooks will be described later.
-
----
-## useReducer
-
-
