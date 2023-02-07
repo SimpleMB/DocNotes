@@ -28,6 +28,11 @@ type UserType = {
 
 const [users, setUsers] = React.useState<UserType[]>([]);
 
+// or we can start with `null` as a initial value but we know that there will be array of users
+// so we can use OR operator - UserType[] OR null
+
+const [users, setUsers] = React.useState<UserType[] | null>(null)
+
 ```
 If we need to send users and/or dispatch function somewhere to the other component:
 
@@ -41,3 +46,4 @@ const UserList = ({users, setUsers} : UserListProps) => {
 
 }
 ```
+##useEffect hook
