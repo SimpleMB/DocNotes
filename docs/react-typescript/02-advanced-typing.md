@@ -34,7 +34,7 @@ const [users, setUsers] = React.useState<UserType[]>([]);
 const [users, setUsers] = React.useState<UserType[] | null>(null)
 
 ```
-If we need to send users and/or dispatch function somewhere to the other component (we often do that with reducers):
+If we need to send users and/or dispatch function somewhere to the other component:
 
 ```jsx
 type UserListProps = {
@@ -95,4 +95,16 @@ const reducer = (state: PizzaState, action: PizzaAction) => {
 }
 ```
 :::tip Use constants
-Instead of strings in action types create an object with constants.
+Instead of strings in action types create an enum.
+:::
+
+If we want to send dispatch action to some other components:
+
+```jsx
+const Calculator = ({ dispatch, state }: { 
+        state: PizzaState;
+        dispatch: React.Dispatch<PizzaAction>;
+    }) => {
+    //... calculator body
+}
+```
