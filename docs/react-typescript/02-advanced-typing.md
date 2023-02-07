@@ -34,7 +34,7 @@ const [users, setUsers] = React.useState<UserType[]>([]);
 const [users, setUsers] = React.useState<UserType[] | null>(null)
 
 ```
-If we need to send users and/or dispatch function somewhere to the other component:
+If we need to send users and/or dispatch function somewhere to the other component (we often do that with reducers):
 
 ```jsx
 type UserListProps = {
@@ -70,3 +70,29 @@ const changeCount = (event: React.ChangeEvent<HTMLInputElement>) => {
     onChange={(event) => setValue(+event.target.value)}
 />
 ```
+
+## Typing reducers
+When a state gets complicated we often use reducers.
+
+```jsx
+const reducer = (state: any, action: any) => {
+    // state computing
+}
+```
+We know the shape of the state:
+Next, we need to figure out the actions:
+```jsx
+type PizzaAction = {
+    type:
+        | "UPDATE_NUMBER_OF_PEOPLE"
+        | "UPDATE_SLICES_PER_PERSON"
+        | "UPDATE_SLICES_PER_PIE";
+    payload: number;
+}
+
+const reducer = (state: PizzaState, action: PizzaAction) => {
+    // state computing
+}
+```
+:::tip Use constants
+Instead of strings in action types create an object with constants.
