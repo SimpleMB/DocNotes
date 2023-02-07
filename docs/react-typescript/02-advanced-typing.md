@@ -46,11 +46,9 @@ const UserList = ({users, setUsers} : UserListProps) => {
 
 }
 ```
-##Typing Forms
+## Typing Forms
 
-1. **Typing Events**
-When we hover over the onChange property we will get a hint from the ide what type it is.
-We can then use it when we type the function that will be triggered.
+1. **Typing Events.** When we hover over the onChange property we will get a hint from the ide what type it is. We can then use it when we type the function that will be triggered.
 ```jsx
 <input {...props} value={value} onChange={changeCount}/>
 ```
@@ -62,10 +60,13 @@ const changeCount = (event: React.ChangeEvent<HTMLInputElement>) => {
   //...
   <input {...props} value={value} onChange={changeCount}/>
 ```
-2. **Typing inline functions**.
-Typing this type of function is not necessary. Typescript will figure out what we want.
+2. **Typing inline functions.** Typing this type of function is not necessary. Typescript will figure out what we want.
 
 ```jsx
 <button onClick={() => setCounter(prev => prev++)}/>
-<input type="number" value={value} onChange={(event) => setValue(+event.target.value)}/>
+<input 
+    type="number" 
+    value={value} 
+    onChange={(event) => setValue(+event.target.value)}
+/>
 ```
