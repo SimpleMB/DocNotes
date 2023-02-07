@@ -46,4 +46,26 @@ const UserList = ({users, setUsers} : UserListProps) => {
 
 }
 ```
-##useEffect hook
+##Typing Forms
+
+1. **Typing Events**
+When we hover over the onChange property we will get a hint from the ide what type it is.
+We can then use it when we type the function that will be triggered.
+```jsx
+<input {...props} value={value} onChange={changeCount}/>
+```
+
+```jsx
+const changeCount = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setCount(+event.target.value);
+  };
+  //...
+  <input {...props} value={value} onChange={changeCount}/>
+```
+2. **Typing inline functions**.
+Typing this type of function is not necessary. Typescript will figure out what we want.
+
+```jsx
+<button onClick={() => setCounter(prev => prev++)}/>
+<input type="number" value={value} onChange={(event) => setValue(+event.target.value)}/>
+```
