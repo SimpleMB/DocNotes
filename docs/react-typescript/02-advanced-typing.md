@@ -108,3 +108,27 @@ const Calculator = ({ dispatch, state }: {
     //... calculator body
 }
 ```
+
+## Utility types
+
+1. React.HTMLProps< HTMLElement>
+It will accept custom props that we provided to the component and also props that `input` element requires.  
+```jsx
+type Props = {
+    // ... some types
+}
+
+const Input = (props: <Props & React.HTMLProps<HTMLInputElement>>) => {
+
+    return(
+        <inpot {...props}>
+    )
+}
+
+<Input about={...} accept={...} alt={...} ...>
+```
+
+2. React.ComponentProps< typeof XXX> - figuring out types of the XXX component props.
+```jsx
+type MyComponentProps = React.ComponentProps<typeof MyComponent>
+```
