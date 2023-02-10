@@ -4,6 +4,8 @@ sidebar_position: 1
 
 # Basic types in React
 
+[Interesting React-Typescript-Cheatsheets](https://react-typescript-cheatsheet.netlify.app/)
+
 ---
 ## JSX.Element
 
